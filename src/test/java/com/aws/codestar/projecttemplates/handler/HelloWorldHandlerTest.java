@@ -53,7 +53,6 @@ public class HelloWorldHandlerTest {
     @DisplayName("Basic test for request handler")
     void testHandleRequest() {
         GatewayResponse response = (GatewayResponse) new HelloWorldHandler().handleRequest(input, mockLambdaContext);
-
         // Verify the response obtained matches the values we expect.
         JSONObject jsonObjectFromResponse = new JSONObject(response.getBody());
 //        assert(EXPECTED_RESPONSE_VALUE.contains(jsonObjectFromResponse.get("Output").toString()));
