@@ -6,6 +6,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.aws.codestar.benchmarks.BenchMark;
 import com.aws.codestar.projecttemplates.GatewayResponse;
 import org.json.JSONObject;
+import org.openjdk.jmh.runner.RunnerException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,13 +16,18 @@ import java.util.Map;
  */
 public class HelloWorldHandler implements RequestHandler<Object, Object> {
 
-    @lombok.SneakyThrows
+
     public Object handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
         BenchMark bm = new BenchMark();
-        String result = bm.main().toString();
+        String result = null;
+        try {
+            result = bm.main().toString();
+        } catch (RunnerException e) {
+            e.printStackTrace();
+        }
 
         return new GatewayResponse(new JSONObject().put("Output", " The run result is:  " + result ).toString(), headers, 200);
     }
