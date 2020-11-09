@@ -20,6 +20,7 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
         headers.put("Content-Type", "application/json");
 
         BenchMark bm = new BenchMark();
+        System.out.println("This is version of the 8th ");
 
         return new GatewayResponse(new JSONObject().put("Output", " Hello World " ).toString(), headers, 200);
     }
