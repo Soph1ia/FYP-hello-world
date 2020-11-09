@@ -15,14 +15,15 @@ import java.util.Map;
  */
 public class HelloWorldHandler implements RequestHandler<Object, Object> {
 
+    @lombok.SneakyThrows
     public Object handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
         BenchMark bm = new BenchMark();
-        System.out.println("This is version of the 8th ");
+        String result = bm.main().toString();
 
-        return new GatewayResponse(new JSONObject().put("Output", " Hello World " ).toString(), headers, 200);
+        return new GatewayResponse(new JSONObject().put("Output", " The run result is:  " + result ).toString(), headers, 200);
     }
 
 
