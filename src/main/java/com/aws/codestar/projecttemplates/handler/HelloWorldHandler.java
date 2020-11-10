@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 import com.aws.codestar.benchmarks.BenchMark;
+import com.aws.codestar.benchmarks.ImageRotationBenchMark;
 import com.aws.codestar.projecttemplates.GatewayResponse;
 import org.json.JSONObject;
 import org.openjdk.jmh.runner.RunnerException;
@@ -21,6 +22,7 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
 
+        // CPU Benchmark - calculates 2000!
         BenchMark bm = new BenchMark();
         String result = null;
         try {
@@ -29,7 +31,15 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
             e.printStackTrace();
         }
 
-        return new GatewayResponse(new JSONObject().put("Output", " The run result is:  " + result ).toString(), headers, 200);
+        // RAM Benchmark - rotates and resizes the image
+        ImageRotationBenchMark irb = new ImageRotationBenchMark();
+        try {
+            irb.main();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new GatewayResponse(new JSONObject().put("Output", " CPU Run Results :  " + result + ", RAM Run Results: " + ImageRotationBenchMark.RunResultsForImageRotationBenchmark ).toString(), headers, 200);
     }
 
 

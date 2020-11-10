@@ -19,7 +19,9 @@ public class BenchMark {
         public static final BigInteger num = new BigInteger("20");
     }
 
-    @Benchmark @BenchmarkMode(Mode.All) @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    @Benchmark
+    @BenchmarkMode(Mode.All)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void test_method(Blackhole bh) {
         BigInteger result = factorial(MyValues.num);
         bh.consume(result);
@@ -30,16 +32,16 @@ public class BenchMark {
                 .include(BenchMark.class.getSimpleName())
                 .forks(1)
                 .build();
-        Collection<RunResult> runResults  = new Runner(opt).run();
+        Collection<RunResult> runResults = new Runner(opt).run();
         return runResults;
     }
 
     private BigInteger factorial(BigInteger num) {
         BigInteger total;
-        if( num.equals(new BigInteger("1"))) {
+        if (num.equals(new BigInteger("1"))) {
             return new BigInteger("1");
         } else {
-            total =  num.multiply(factorial(num.subtract(new BigInteger("1"))));
+            total = num.multiply(factorial(num.subtract(new BigInteger("1"))));
         }
         return total;
     }
