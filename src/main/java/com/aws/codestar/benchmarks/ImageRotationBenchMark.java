@@ -1,8 +1,5 @@
 package com.aws.codestar.benchmarks;
 
-import com.idrsolutions.image.JDeli;
-import com.idrsolutions.image.process.ImageProcessingOperations;
-import org.apache.catalina.startup.ClassLoaderFactory;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.results.RunResult;
@@ -11,6 +8,7 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Collection;
@@ -24,8 +22,8 @@ public class ImageRotationBenchMark {
     @State(Scope.Thread)
     public static class ClassValues {
         public static final Logger logger = Logger.getLogger(ImageRotationBenchMark.class.getName());
-        static final ImageProcessingOperations op = new ImageProcessingOperations();
-
+        static final int scaledWidth = 1024;
+        static final int scaledHeight = 1000;
     }
 
     @Benchmark
@@ -33,15 +31,23 @@ public class ImageRotationBenchMark {
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void rotateAndResizeImage(Blackhole bm){
         try {
+            // reads in the image
             BufferedImage image = ImageIO.read(new File("image.jpg"));
-            BufferedImage rotatedImage = JDeli.process(ClassValues.op.rotate(90), image);
-            BufferedImage resizedImage = JDeli.process(ClassValues.op.scale(1), rotatedImage);
-            bm.consume(resizedImage);
+            // Creates output images
+            BufferedImage outputImage = new BufferedImage(ClassValues.scaledWidth, ClassValues.scaledHeight, image.getType());
+
+            //Scales the input image to the output image
+            Graphics2D g2d = outputImage.createGraphics();
+            g2d.drawImage(image, 0,0, ClassValues.scaledWidth,ClassValues.scaledHeight,null);
+            g2d.dispose();
+
+            bm.consume(outputImage);
         } catch (Exception e) {
             ClassValues.logger.log(Level.WARNING, " error occurred rotating the image-> " + e);
         }
 
     }
+
 
     public void  main() throws Exception {
         Options opt = new OptionsBuilder()
