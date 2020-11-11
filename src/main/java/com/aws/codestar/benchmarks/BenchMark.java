@@ -36,8 +36,8 @@ public class BenchMark {
         bh.consume(result);
     }
     @Benchmark
-    public void factorial_25000(Blackhole bh) {
-        BigInteger result = factorial(new BigInteger("25000"));
+    public void factorial_4000(Blackhole bh) {
+        BigInteger result = factorial(new BigInteger("4000"));
         bh.consume(result);
     }
 

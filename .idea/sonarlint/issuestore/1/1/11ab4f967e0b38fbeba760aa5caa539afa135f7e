@@ -1,0 +1,26 @@
+
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¦ùÿÿÿÿ8”ÒÙÄÛ.
+F
+java:S2129"$Remove this "BigInteger" constructor(î×½¹øÿÿÿÿ8ªÒ¹ÅÛ.
+F
+java:S2129("$Remove this "BigInteger" constructor(ú¯µùÿÿÿÿ8×ÇºÅÛ.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(í—©Ûûÿÿÿÿ8”ÒÙÄÛ.
+o	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üùµ»ûÿÿÿÿ8õÒ¸ÅÛ.
+A
+java:S2129#"$Remove this "BigInteger" constructor(»¦ËÆ8ı„ºÅÛ.
+M
+java:S3416"+Update this logger to use "MyValues.class".(’„äşÿÿÿÿ8”ÒÙÄÛ.
+[
+java:S18541">Remove this useless assignment to local variable "runResults".(×ÛüÒ8„ĞëÅÛ.
+A
+java:S21298"$Remove this "BigInteger" constructor(ş“˜8”ÒÙÄÛ.
+o	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åœ‚úÿÿÿÿ8×ÇºÅÛ.
+f
+java:S1128"DRemove this unused import 'org.openjdk.jmh.results.BenchmarkResult'.(‡³ê ùÿÿÿÿ8§¿½ÅÛ.
+F
+java:S2129:"$Remove this "BigInteger" constructor(î„ô£şÿÿÿÿ8”ÒÙÄÛ.
+L
+java:S14811"/Remove this unused "runResults" local variable.(×ÛüÒ8„ĞëÅÛ.
+A
+java:S21297"$Remove this "BigInteger" constructor(¦²Õ´8”ÒÙÄÛ.
