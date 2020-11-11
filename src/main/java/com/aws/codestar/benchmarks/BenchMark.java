@@ -1,4 +1,3 @@
-/*
 package com.aws.codestar.benchmarks;
 
 import org.openjdk.jmh.annotations.*;
@@ -16,29 +15,39 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+@BenchmarkMode(Mode.All)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class BenchMark {
 
     @State(Scope.Thread)
     public static class MyValues {
         public static final Logger logger = Logger.getLogger(BenchMark.class.getName());
-        public static final BigInteger num = new BigInteger("20");
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void test_method(Blackhole bh) {
-        BigInteger result = factorial(MyValues.num);
+    public void factorial_2000(Blackhole bh) {
+        BigInteger result = factorial(new BigInteger("2000"));
+        bh.consume(result);
+    }
+    @Benchmark
+    public void factorial_3000(Blackhole bh) {
+        BigInteger result = factorial(new BigInteger("3000"));
+        bh.consume(result);
+    }
+    @Benchmark
+    public void factorial_25000(Blackhole bh) {
+        BigInteger result = factorial(new BigInteger("25000"));
         bh.consume(result);
     }
 
-    public static void main(String[] args) throws RunnerException {
+    public void main() throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
                 .forks(1)
                 .build();
         Collection<RunResult> runResults = new Runner(opt).run();
-        MyValues.logger.log(Level.INFO, " Benchmark has run, the run results are: " + formatOutputResult(runResults));
+        MyValues.logger.log(Level.INFO, " The Factorial benchmark has run " );
     }
 
     private BigInteger factorial(BigInteger num) {
@@ -51,17 +60,4 @@ public class BenchMark {
         return total;
     }
 
-    private static String formatOutputResult(Collection<RunResult> runResults) {
-        StringBuilder output = new StringBuilder();
-        output.append("The Results of the Image Rotate Benchmark is: ");
-        for(RunResult r: runResults) {
-            output.append("The BenchMark Results " + r.getBenchmarkResults().stream().map(BenchmarkResult::getBenchmarkResults));
-            output.append("The Aggregated Results " + r.getAggregatedResult().toString());
-            output.append("The Params are " + r.getParams().toString());
-            output.append("The Primary Result " + r.getPrimaryResult());
-            output.append("The Secondary Result " + r.getSecondaryResults());
-        }
-        return output.toString();
-    }
 }
-*/

@@ -16,13 +16,10 @@ import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collector;
-
-import static java.util.stream.Collectors.toList;
 
 public class ImageRotationBenchMark {
     public static String RunResultsForImageRotationBenchmark = new String("no results yet");
-
+    public static int num = 0;
     @State(Scope.Thread)
     public static class ClassValues {
         public static final Logger logger = Logger.getLogger(ImageRotationBenchMark.class.getName());
@@ -60,7 +57,8 @@ public class ImageRotationBenchMark {
 
         Collection<RunResult> runResults = new Runner(opt).run();
         ClassValues.logger.log(Level.INFO, "Image Rotation BenchMark has been run");
-        RunResultsForImageRotationBenchmark = runResults.stream().map(m -> m.getParams()).collect(toList()).toString();
+        num++;
+        RunResultsForImageRotationBenchmark = "Results have been run, changed value to see if it works. " + num;
     }
 
 
@@ -76,4 +74,5 @@ public class ImageRotationBenchMark {
         }
         return output.toString();
     }*/
+
 }
