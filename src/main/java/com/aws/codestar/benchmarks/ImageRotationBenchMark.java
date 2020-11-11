@@ -2,6 +2,7 @@ package com.aws.codestar.benchmarks;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.results.BenchmarkResult;
 import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
@@ -15,9 +16,12 @@ import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collector;
+
+import static java.util.stream.Collectors.toList;
 
 public class ImageRotationBenchMark {
-    public static String RunResultsForImageRotationBenchmark = new String( "no results yet");
+    public static String RunResultsForImageRotationBenchmark = new String("no results yet");
 
     @State(Scope.Thread)
     public static class ClassValues {
@@ -27,9 +31,9 @@ public class ImageRotationBenchMark {
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    public void rotateAndResizeImage(Blackhole bm){
+    @BenchmarkMode(Mode.All)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void rotateAndResizeImage(Blackhole bm) {
         try {
             // reads in the image
             BufferedImage image = ImageIO.read(new File("image.jpg"));
@@ -38,7 +42,7 @@ public class ImageRotationBenchMark {
 
             //Scales the input image to the output image
             Graphics2D g2d = outputImage.createGraphics();
-            g2d.drawImage(image, 0,0, ClassValues.scaledWidth,ClassValues.scaledHeight,null);
+            g2d.drawImage(image, 0, 0, ClassValues.scaledWidth, ClassValues.scaledHeight, null);
             g2d.dispose();
 
             bm.consume(outputImage);
@@ -48,14 +52,28 @@ public class ImageRotationBenchMark {
 
     }
 
-
-    public void  main() throws Exception {
+    public void main() throws Exception {
         Options opt = new OptionsBuilder()
                 .include(ImageRotationBenchMark.class.getSimpleName())
                 .forks(1)
                 .build();
 
         Collection<RunResult> runResults = new Runner(opt).run();
-        ClassValues.logger.log(Level.INFO, " The image has been processed, the results are" + runResults);
+        ClassValues.logger.log(Level.INFO, "Image Rotation BenchMark has been run");
+        RunResultsForImageRotationBenchmark = runResults.stream().map(m -> m.getParams()).collect(toList()).toString();
     }
+
+
+/*    public static String formatResultsForImageRotation(Collection<RunResult> runResults) {
+        StringBuilder output = new StringBuilder();
+        output.append("The Results of the Benchmark Class Benchmark is: ");
+        for(RunResult r: runResults) {
+            output.append("The BenchMark Results " + r.getBenchmarkResults().stream().map(BenchmarkResult::getBenchmarkResults));
+            output.append("The Aggregated Results " + r.getAggregatedResult().toString());
+            output.append("The Params are " + r.getParams().toString());
+            output.append("The Primary Result " + r.getPrimaryResult());
+            output.append("The Secondary Result " + r.getSecondaryResults());
+        }
+        return output.toString();
+    }*/
 }
