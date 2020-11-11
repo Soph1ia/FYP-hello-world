@@ -1,14 +1,14 @@
 
-
-java:S1488!"bImmediately return this expression instead of assigning it to the temporary variable "runResults".(×ÛüÒ8ã‘×õÚ.
-A
-java:S2129'"$Remove this "BigInteger" constructor(¦²Õ´8„Š‚ôÚ.
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì™Ë¤8àÊ±õÚ.
-A
-java:S2129("$Remove this "BigInteger" constructor(ş“˜8œ€ÑÙ×.
-\
-java:S1118":Add a private constructor to hide the implicit public one.(í—©Ûûÿÿÿÿ8àÊ±õÚ.
 F
-java:S2129*"$Remove this "BigInteger" constructor(î„ô£şÿÿÿÿ8„Š‚ôÚ.
+java:S2129,"$Remove this "BigInteger" constructor(î„ô£şÿÿÿÿ8„Š‚ôÚ.
 F
 java:S2129"$Remove this "BigInteger" constructor(ç§›üÿÿÿÿ8àÊ±õÚ.
+
+java:S1488#"bImmediately return this expression instead of assigning it to the temporary variable "runResults".(×ÛüÒ8ã‘×õÚ.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(í—©Ûûÿÿÿÿ8àÊ±õÚ.
+A
+java:S2129)"$Remove this "BigInteger" constructor(¦²Õ´8„Š‚ôÚ.
+A
+java:S2129*"$Remove this "BigInteger" constructor(ş“˜8œ€ÑÙ×.
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì™Ë¤8àÊ±õÚ.

@@ -24,9 +24,8 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
 
         // CPU Benchmark - calculates 2000!
         BenchMark bm = new BenchMark();
-        String result = null;
         try {
-            result = bm.main().toString();
+           bm.main();
         } catch (RunnerException e) {
             e.printStackTrace();
         }
@@ -39,7 +38,7 @@ public class HelloWorldHandler implements RequestHandler<Object, Object> {
             e.printStackTrace();
         }
 
-        return new GatewayResponse(new JSONObject().put("Output", " CPU Run Results :  " + result + ", RAM Run Results: " + ImageRotationBenchMark.RunResultsForImageRotationBenchmark ).toString(), headers, 200);
+        return new GatewayResponse(new JSONObject().put("Output", " Testing the static variables for image rotation class: " + ImageRotationBenchMark.RunResultsForImageRotationBenchmark ).toString(), headers, 200);
     }
 
 

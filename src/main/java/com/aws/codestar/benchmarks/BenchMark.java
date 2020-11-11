@@ -11,11 +11,14 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BenchMark {
 
     @State(Scope.Thread)
     public static class MyValues {
+        public static final Logger logger = Logger.getLogger(BenchMark.class.getName());
         public static final BigInteger num = new BigInteger("20");
     }
 
@@ -27,13 +30,13 @@ public class BenchMark {
         bh.consume(result);
     }
 
-    public Collection<RunResult> main() throws RunnerException {
+    public void main() throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
                 .forks(1)
                 .build();
         Collection<RunResult> runResults = new Runner(opt).run();
-        return runResults;
+        MyValues.logger.log(Level.INFO, " Benchmark has run, the run results are: " + runResults);
     }
 
     private BigInteger factorial(BigInteger num) {

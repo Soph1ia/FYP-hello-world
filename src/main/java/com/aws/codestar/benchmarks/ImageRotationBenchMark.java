@@ -56,6 +56,6 @@ public class ImageRotationBenchMark {
                 .build();
 
         Collection<RunResult> runResults = new Runner(opt).run();
-        RunResultsForImageRotationBenchmark = runResults.toString();
+        ClassValues.logger.log(Level.INFO, " The image has been processed, the results are" + runResults);
     }
 }
