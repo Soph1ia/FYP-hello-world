@@ -53,6 +53,7 @@ public class ImageRotationBenchMark {
         Options opt = new OptionsBuilder()
                 .include(ImageRotationBenchMark.class.getSimpleName())
                 .forks(1)
+                .result("imageRotationBenchmarkResult.json")
                 .build();
 
         Collection<RunResult> runResults = new Runner(opt).run();

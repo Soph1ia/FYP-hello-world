@@ -41,10 +41,11 @@ public class BenchMark {
         bh.consume(result);
     }
 
-    public void main() throws RunnerException {
+    public static void main() throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
                 .forks(1)
+                .result("cpuBenchmarkResult.json")
                 .build();
         Collection<RunResult> runResults = new Runner(opt).run();
         MyValues.logger.log(Level.INFO, " The Factorial benchmark has run " );
