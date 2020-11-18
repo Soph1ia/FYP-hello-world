@@ -17,9 +17,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.aws.codestar.benchmarks.BenchMark.printFile;
+
 public class ImageRotationBenchMark {
-    public static String RunResultsForImageRotationBenchmark = new String("no results yet");
-    public static int num = 0;
     @State(Scope.Thread)
     public static class ClassValues {
         public static final Logger logger = Logger.getLogger(ImageRotationBenchMark.class.getName());
@@ -55,15 +55,16 @@ public class ImageRotationBenchMark {
                 .forks(1)
                 .result("imageRotationBenchmarkResult.json")
                 .build();
+        new Runner(opt).run();
 
-        Collection<RunResult> runResults = new Runner(opt).run();
+        //prints out the results to the console.
+        ClassValues.logger.log(Level.INFO, "RESULTS_OF_BENCHMARK");
+        printFile("imageRotationBenchmarkResult.json");
         ClassValues.logger.log(Level.INFO, "Image Rotation BenchMark has been run");
-        num++;
-        RunResultsForImageRotationBenchmark = "Results have been run, changed value to see if it works. " + num;
     }
 
 
-/*    public static String formatResultsForImageRotation(Collection<RunResult> runResults) {
+    public static String formatResultsForImageRotation(Collection<RunResult> runResults) {
         StringBuilder output = new StringBuilder();
         output.append("The Results of the Benchmark Class Benchmark is: ");
         for(RunResult r: runResults) {
@@ -74,6 +75,7 @@ public class ImageRotationBenchMark {
             output.append("The Secondary Result " + r.getSecondaryResults());
         }
         return output.toString();
-    }*/
+    }
+
 
 }

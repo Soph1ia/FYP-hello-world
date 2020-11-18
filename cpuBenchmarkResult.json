@@ -1,0 +1,2 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"com.aws.codestar.benchmarks.BenchMark.factorial_2000","thrpt",1,20,1.230300,0.061338,"ops/ms"
