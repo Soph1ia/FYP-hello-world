@@ -1,2 +1,9 @@
 
+X	java:S125	"<This block of commented-out lines of code should be removed.(²³ï¡8éºÖäİ.
+]	java:S125"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8ÜıÅäİ.
+X	java:S125$"<This block of commented-out lines of code should be removed.(İ¬‹8¶ÎÖäİ.
+X
+java:S1854"6Remove this useless assignment to local variable "bm".(Õää‰ıÿÿÿÿ8ÜıÅäİ.
 X	java:S125"<This block of commented-out lines of code should be removed.(¯ÁïĞ8İÚ™¹Û.
+I
+java:S1481"'Remove this unused "bm" local variable.(Õää‰ıÿÿÿÿ8ÜıÅäİ.

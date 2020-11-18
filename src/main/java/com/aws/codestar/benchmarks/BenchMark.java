@@ -2,8 +2,6 @@ package com.aws.codestar.benchmarks;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.results.BenchmarkResult;
-import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -11,9 +9,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.math.BigInteger;
-import java.util.Collection;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -45,7 +41,7 @@ public class BenchMark {
         bh.consume(result);
     }
 
-    public static void main(String[] args) throws RunnerException, FileNotFoundException {
+    public void main() throws RunnerException {
         Options opt = new OptionsBuilder()
                 .include(BenchMark.class.getSimpleName())
                 .forks(1)

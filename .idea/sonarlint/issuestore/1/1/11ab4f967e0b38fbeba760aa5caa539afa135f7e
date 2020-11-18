@@ -1,26 +1,33 @@
 
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¦ùÿÿÿÿ8”ÒÙÄÛ.
-F
-java:S2129;"$Remove this "BigInteger" constructor(î„ô£şÿÿÿÿ8”ÒÙÄÛ.
-L
-java:S14812"/Remove this unused "runResults" local variable.(×ÛüÒ8„ĞëÅÛ.
-F
-java:S2129"$Remove this "BigInteger" constructor(î×½¹øÿÿÿÿ8ªÒ¹ÅÛ.
-o	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ÛÇ·ıÿÿÿÿ8×ÇºÅÛ.
-\
-java:S1118":Add a private constructor to hide the implicit public one.(í—©Ûûÿÿÿÿ8”ÒÙÄÛ.
+o	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¦ùÿÿÿÿ8”ÒÙÄÛ.
 A
-java:S2129("$Remove this "BigInteger" constructor(ØÚ¦Ë8×ÇºÅÛ.
-o	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üùµ»ûÿÿÿÿ8õÒ¸ÅÛ.
+java:S2129,"$Remove this "BigInteger" constructor(ØÚ¦Ë8æıäİ.
+M
+java:S1128"0Remove this unused import 'java.io.PrintStream'.(×ê’8ğ—óäİ.
 f
 java:S1128"DRemove this unused import 'org.openjdk.jmh.results.BenchmarkResult'.(‡³ê ùÿÿÿÿ8§¿½ÅÛ.
+S
+java:S1128"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿ8³’¿äİ.
 A
-java:S21298"$Remove this "BigInteger" constructor(¦²Õ´8”ÒÙÄÛ.
-A
-java:S21299"$Remove this "BigInteger" constructor(ş“˜8”ÒÙÄÛ.
-A
-java:S2129#"$Remove this "BigInteger" constructor(»¦ËÆ8ı„ºÅÛ.
+java:S2129'"$Remove this "BigInteger" constructor(»¦ËÆ8æıäİ.
 M
-java:S3416"+Update this logger to use "MyValues.class".(’„äşÿÿÿÿ8”ÒÙÄÛ.
+java:S3416"+Update this logger to use "MyValues.class".(’„äşÿÿÿÿ8”ÒÙÄÛ.
+A
+java:S2129@"$Remove this "BigInteger" constructor(¦²Õ´8”ÒÙÄÛ.
+“
+java:S11300"vRemove the declaration of thrown exception 'java.io.FileNotFoundException', as it cannot be thrown from method's body.(ŠÃŸ¡8„Öôäİ.
+F
+java:S2129C"$Remove this "BigInteger" constructor(î„ô£şÿÿÿÿ8”ÒÙÄÛ.
+g
+java:S2095K"EUse try-with-resources or close this "Scanner" in a "finally" clause.(ÈÅç–ûÿÿÿÿ8áÖïäİ.
+o	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üùµ»ûÿÿÿÿ8æıäİ.
+Z	java:S106O"9Replace this use of System.out or System.err by a logger.(éí÷„ùÿÿÿÿ8ç©ğäİ.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(í—©Ûûÿÿÿÿ8”ÒÙÄÛ.
 [
-java:S18542">Remove this useless assignment to local variable "runResults".(×ÛüÒ8„ĞëÅÛ.
+java:S1128">Remove this unused import 'org.openjdk.jmh.results.RunResult'.(Ü×ñ²8³’¿äİ.
+F
+java:S2129""$Remove this "BigInteger" constructor(î×½¹øÿÿÿÿ8ªÒ¹ÅÛ.
+A
+java:S2129A"$Remove this "BigInteger" constructor(ş“˜8”ÒÙÄÛ.
+o	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ÛÇ·ıÿÿÿÿ8æıäİ.

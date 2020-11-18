@@ -2,8 +2,6 @@ package com.aws.codestar.benchmarks;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
-import org.openjdk.jmh.results.BenchmarkResult;
-import org.openjdk.jmh.results.RunResult;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
@@ -12,7 +10,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,7 +61,7 @@ public class ImageRotationBenchMark {
     }
 
 
-    public static String formatResultsForImageRotation(Collection<RunResult> runResults) {
+ /*   public static String formatResultsForImageRotation(Collection<RunResult> runResults) {
         StringBuilder output = new StringBuilder();
         output.append("The Results of the Benchmark Class Benchmark is: ");
         for(RunResult r: runResults) {
@@ -75,7 +72,7 @@ public class ImageRotationBenchMark {
             output.append("The Secondary Result " + r.getSecondaryResults());
         }
         return output.toString();
-    }
+    }*/
 
 
 }
